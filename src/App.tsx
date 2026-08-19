@@ -16,9 +16,10 @@ import { Toaster } from "./components/refine-ui/notification/toaster";
 import { useNotificationProvider } from "./components/refine-ui/notification/use-notification-provider";
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import { dataProvider } from "./providers/data";
+
 import SubjectsList from "./pages/Subjects/List";
 import SubjectsCreate from "./pages/Subjects/Create";
+import { dataProvider } from "./provider/data";
 
 function App() {
   return (
