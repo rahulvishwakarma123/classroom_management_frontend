@@ -21,6 +21,9 @@ import SubjectsList from "./pages/Subjects/List";
 import SubjectsCreate from "./pages/Subjects/Create";
 import { dataProvider } from "./provider/data";
 
+/**
+ * Configures and renders the application shell, routes, providers, and development tools.
+ */
 function App() {
   return (
     <BrowserRouter>
