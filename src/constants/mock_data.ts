@@ -1,0 +1,85 @@
+import type { Subject } from "@/types";
+
+// Mock data array of subjects
+export const MOCK_SUBJECT: Subject[] = [
+  {
+    id: 1,
+    code: "CS101",
+    name: "Introduction to Computer Science",
+    department: "Computer Science",
+    description: "Fundamental concepts of programming, algorithms, and data structures using Python.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    code: "MATH201",
+    name: "Calculus II",
+    department: "Mathematics",
+    description: "Advanced integration techniques, sequences, series, and multivariable calculus.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 3,
+    code: "PHY101",
+    name: "Physics I: Mechanics",
+    department: "Physics",
+    description: "Classical mechanics covering kinematics, dynamics, energy, and momentum.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 4,
+    code: "ENG205",
+    name: "British Literature",
+    department: "English",
+    description: "Survey of major British literary works from the Medieval period to the 18th century.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 5,
+    code: "BIO301",
+    name: "Molecular Biology",
+    department: "Biology",
+    description: "Study of molecular processes including DNA replication, transcription, and protein synthesis.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 6,
+    code: "HIST102",
+    name: "World History: 20th Century",
+    department: "History",
+    description: "Major global events, conflicts, and social movements of the 20th century.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 7,
+    code: "CHEM201",
+    name: "Organic Chemistry",
+    department: "Chemistry",
+    description: "Structure, properties, and reactions of organic compounds and functional groups.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 8,
+    code: "PSY101",
+    name: "Introduction to Psychology",
+    department: "Psychology",
+    description: "Foundational concepts in psychology including behavior, cognition, and mental processes.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 9,
+    code: "ECO202",
+    name: "Microeconomics",
+    department: "Economics",
+    description: "Study of individual economic behavior, market structures, and resource allocation.",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 10,
+    code: "ART101",
+    name: "Art History: Renaissance to Modern",
+    department: "Art",
+    description: "Evolution of Western art from the Renaissance through contemporary movements.",
+    createdAt: new Date().toISOString(),
+  }
+];
