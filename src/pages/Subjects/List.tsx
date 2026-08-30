@@ -22,67 +22,87 @@ const SubjectsList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectDepartment, setSelectDepartment] = useState("all");
 
+  const departmentFilters =
+    selectDepartment === "all"
+      ? []
+      : [
+          {
+            field: "department",
+            operator: "eq" as const,
+            value: selectDepartment,
+          },
+        ];
 
-  const departmentFilters = selectDepartment === 'all' ? [] : [
-    {field : 'department', operator : 'eq' as const, value : selectDepartment}
-  ]
-
-  const searchFilters = searchQuery ? [{
-    field : 'name', operator : 'contains' as const, value: searchQuery
-  }] : [];
-
+  const searchFilters = searchQuery
+    ? [
+        {
+          field: "name",
+          operator: "contains" as const,
+          value: searchQuery,
+        },
+      ]
+    : [];
 
   const SubjectTable = useTable<Subject>({
-    columns:useMemo<ColumnDef<Subject>[]>(()=>[
-      // this is for column 1
-      {
-      id:'code',
-      accessorKey:'code',
-      size:100,
-      header: () => <p className="column-title ml-2">Code</p>,
-      cell: ({getValue}) => <Badge>{getValue<string>()}</Badge>
-      },
-      // column 2
-      {
-        id:'name',
-        accessorKey:'name',
-        size:200,
-        header: () => <p className="column-title">Name</p>,
-        cell: ({getValue}) => <span className="text-foreground">{getValue<string>()}</span>
-      },
-      {
-        id:'department',
-        accessorKey: 'department',
-        size:150,
-        header: () => <p className="column-title">Department</p>,
-        cell: ({getValue}) => <Badge variant='secondary'>{getValue<string>()}</Badge>
-      },
-      {
-        id: 'description',
-        accessorKey: 'description',
-        header: () => <p className="column-title">Description</p>,
-        cell: ({getValue}) => <span className="truncate line-clamp-2">{getValue<string>()}</span>
-      }
-
-  ], []),
-    refineCoreProps:{
-      resource:'subjects',
-      pagination:{
-        pageSize: 10,
-        mode: 'server',
-      },
-        filters: {
-          permanent : [...departmentFilters, ...searchFilters]
+    columns: useMemo<ColumnDef<Subject>[]>(
+      () => [
+        // this is for column 1
+        {
+          id: "code",
+          accessorKey: "code",
+          size: 100,
+          header: () => <p className="column-title ml-2">Code</p>,
+          cell: ({ getValue }) => <Badge>{getValue<string>()}</Badge>,
         },
-        sorters:{
-          initial:[{
-            field: 'id',
-            order : 'desc'
-          }]
-        }
-      }
-    })
-
+        // column 2
+        {
+          id: "name",
+          accessorKey: "name",
+          size: 200,
+          header: () => <p className="column-title">Name</p>,
+          cell: ({ getValue }) => (
+            <span className="text-foreground">{getValue<string>()}</span>
+          ),
+        },
+        {
+          id: "department",
+          accessorKey: "departments.name",
+          size: 150,
+          header: () => <p className="column-title">Department</p>,
+          cell: ({ getValue }) => (
+            <Badge variant="secondary">{getValue<string>()}</Badge>
+          ),
+        },
+        {
+          id: "description",
+          accessorKey: "description",
+          header: () => <p className="column-title">Description</p>,
+          cell: ({ getValue }) => (
+            <span className="truncate line-clamp-2">{getValue<string>()}</span>
+          ),
+        },
+      ],
+      [],
+    ),
+    refineCoreProps: {
+      resource: "subjects",
+      pagination: {
+        pageSize: 10,
+        mode: "server",
+      },
+      filters: {
+        permanent: [...departmentFilters, ...searchFilters],
+      },
+      sorters: {
+        initial: [
+          {
+            field: "id",
+            order: "desc",
+          },
+        ],
+      },
+    },
+  });
 
   return (
     <ListView>
@@ -119,17 +139,17 @@ const SubjectsList = () => {
 
                 {DEPARTMENT_OPTIONS.map((department) => (
                   <SelectItem key={department.value} value={department.value}>
-                    {department.lable}
+                    {department.label}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
-            <CreateButton/>
+            <CreateButton />
           </div>
         </div>
       </div>
 
-      <DataTable table={SubjectTable}/>
+      <DataTable table={SubjectTable} />
     </ListView>
   );
 };
