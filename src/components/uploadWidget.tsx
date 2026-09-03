@@ -75,7 +75,7 @@ const UploadWidget = ({ value = null, onChange, isDesabled = false }) => {
           tabIndex={0}
           onClick={openWidget}
           onKeyDown={(event) => {
-            if (event.key === "enter") {
+            if (event.key === "Enter") {
               event.preventDefault();
               openWidget();
             }

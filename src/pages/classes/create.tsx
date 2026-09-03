@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator.tsx";
 import { classSchema } from "@/lib/schema.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useBack } from "@refinedev/core";
-import { useForm } from "react-hook-form";
+import { useForm } from "@refinedev/react-hook-form";
 import * as z from "zod";
 
 import {
@@ -23,7 +23,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label.tsx";
 import {
   Select,
   SelectContent,
@@ -32,8 +31,8 @@ import {
   SelectValue,
 } from "@/components/ui/select.tsx";
 import { Textarea } from "@/components/ui/textarea.tsx";
-import { Loader2 } from "lucide-react";
 import UploadWidget from "@/components/uploadWidget";
+import { Loader2 } from "lucide-react";
 
 const Create = () => {
   const back = useBack();
@@ -139,7 +138,7 @@ const Create = () => {
                       <FormControl>
                         <UploadWidget
                           value={field.value ? {url: field.value, publicId: bannerPublicId ?? ""} : null}
-                          onChange={(field:any, file: any) => setBannerImage(field, file)}
+                          onChange={(file: any) => setBannerImage(field, file)}
                         />
                       </FormControl>
                       <FormMessage/>
