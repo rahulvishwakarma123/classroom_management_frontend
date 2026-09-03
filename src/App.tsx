@@ -1,14 +1,12 @@
-import {
-  Refine
-} from "@refinedev/core";
+import { Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
 import routerProvider, {
   DocumentTitleHandler,
-  UnsavedChangesNotifier
+  UnsavedChangesNotifier,
 } from "@refinedev/react-router";
-import { BookOpen, Home } from "lucide-react";
+import { BookOpen, GraduationCap, Home } from "lucide-react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 import "./App.css";
 import { Layout } from "./components/refine-ui/layout/layout";
@@ -20,6 +18,8 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import SubjectsList from "./pages/Subjects/List";
 import SubjectsCreate from "./pages/Subjects/Create";
 import { dataProvider } from "./provider/data";
+import ClassesList from "./pages/classes/list";
+import ClassesCreate from "./pages/classes/create";
 
 function App() {
   return (
@@ -38,30 +38,41 @@ function App() {
               }}
               resources={[
                 {
-                  name: 'dashboard',
-                  list: '/',
-                  meta: {label : 'Home', icon: <Home/>}
+                  name: "dashboard",
+                  list: "/",
+                  meta: { label: "Home", icon: <Home /> },
                 },
                 {
-                  name: 'subjects',
-                  list: '/subjects',
-                  create : '/subjects/create',
-                  meta: {label: 'Subjects', icon: <BookOpen/>}
-                }
+                  name: "subjects",
+                  list: "/subjects",
+                  create: "/subjects/create",
+                  meta: { label: "Subjects", icon: <BookOpen /> },
+                },
+                {
+                  name: "classes",
+                  list: "/classes",
+                  create: "/classes/create",
+                  meta: { label: "Classes", icon: <GraduationCap /> },
+                },
               ]}
             >
               <Routes>
-                <Route element={
-                  <Layout>
-                    <Outlet/>
-                  </Layout>
-                }>
-                  <Route path='/' element={<Dashboard/>} />
-                  <Route path="/subjects"
-                    >
-                      <Route index element={<SubjectsList/>}/>
-                      <Route path="create" element={<SubjectsCreate/>}/>
-                      </Route>
+                <Route
+                  element={
+                    <Layout>
+                      <Outlet />
+                    </Layout>
+                  }
+                >
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/subjects">
+                    <Route index element={<SubjectsList />} />
+                    <Route path="create" element={<SubjectsCreate />} />
+                  </Route>
+                  <Route path="/classes">
+                    <Route index element={<ClassesList />} />
+                    <Route path="create" element={<ClassesCreate />} />
+                  </Route>
                 </Route>
               </Routes>
               <Toaster />
