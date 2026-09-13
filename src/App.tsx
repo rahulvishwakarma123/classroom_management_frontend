@@ -20,30 +20,30 @@ import {
   Home,
   Users,
 } from "lucide-react";
-import SubjectsList from "./pages/Subjects/list";
+import SubjectsList from "./pages/Subjects/list.js";
 import { Layout } from "./components/refine-ui/layout/layout";
 import SubjectsCreate from "./pages/Subjects/create.js";
 import SubjectsShow from "./pages/Subjects/show.js";
 import Dashboard from "./pages/dashboard/index.js";
 
 import { dataProvider } from "./providers/data";
-import ClassesList from "./pages/classes/list";
-import ClassesCreate from "./pages/classes/create";
-import ClassesShow from "./pages/classes/show";
+import ClassesList from "./pages/classes/list.js";
+import ClassesCreate from "./pages/classes/create.js";
+import ClassesShow from "./pages/classes/show.js";
 import { authProvider } from "./providers/auth";
 import { Login } from "./pages/login/index.js";
-import { Register } from "./pages/register";
-import DepartmentsList from "./pages/departments/list";
-import DepartmentsCreate from "./pages/departments/create";
-import DepartmentShow from "./pages/departments/show";
-import FacultyList from "./pages/faculty/list";
+import { Register } from "./pages/register/index.js";
+import DepartmentsList from "./pages/departments/list.js";
+import DepartmentsCreate from "./pages/departments/create.js";
+import DepartmentShow from "./pages/departments/show.js";
+import FacultyList from "./pages/faculty/list.js";
 import FacultyShow from "./pages/faculty/show.js";
-import EnrollmentsCreate from "./pages/enrollments/create";
+import EnrollmentsCreate from "./pages/enrollments/create.js";
 import EnrollmentsJoin from "./pages/enrollments/join.js";
 import EnrollmentConfirm from "./pages/enrollments/confirm.js";
 import ErrorPage from "./pages/error/index.js";
-import ErrorBoundary from "./components/error-boundary";
-import { RateLimitToaster } from "./components/rate-limit-toaster";
+import ErrorBoundary from "./components/error-boundary.js";
+import { RateLimitToaster } from "./components/rate-limit-toaster.js";
 
 function App() {
   return (
